@@ -29,6 +29,9 @@
                 <p>3. 몽클레르코리아 / HR팀 / 인턴 / 2022.06 ~ 2022.08</p>
                 <p>4. ㈜ 트릿지 / HR팀 / 채용 담당 인턴 / 2021.08 ~ 2022.02</p>
             </div>
+            <div class="total-experience">
+                <p id="experienceText"></p>
+            </div>
         </div>
     </section>
 
@@ -284,10 +287,43 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 이현빈 포트폴리오. All rights reserved.</p>
+            <p>&copy; 이현빈 포트폴리오. All rights reserved.</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        function calculateExperience() {
+            // 경력 데이터
+            const careers = [
+                { start: new Date(2024, 1, 1), end: new Date(), type: '정규직' }, // 우미건설
+                { start: new Date(2023, 0, 1), end: new Date(2023, 5, 30), type: '인턴' }, // 태평양
+                { start: new Date(2022, 5, 1), end: new Date(2022, 7, 31), type: '인턴' }, // 몽클레르
+                { start: new Date(2021, 7, 1), end: new Date(2022, 1, 28), type: '인턴' } // 트릿지
+            ];
+
+            let totalMonths = 0;
+            let regularMonths = 0;
+
+            careers.forEach(career => {
+                const months = (career.end.getFullYear() - career.start.getFullYear()) * 12 + 
+                              (career.end.getMonth() - career.start.getMonth());
+                totalMonths += months;
+                
+                if (career.type === '정규직') {
+                    regularMonths = months;
+                }
+            });
+
+            const years = Math.floor(totalMonths / 12);
+            const months = totalMonths % 12;
+
+            const experienceText = `총 경력: ${years}년 ${String(months).padStart(2, '0')}개월(정규직)`;
+            document.getElementById('experienceText').textContent = experienceText;
+        }
+
+        // 페이지 로드 시 경력 계산
+        window.addEventListener('load', calculateExperience);
+    </script>
 </body>
 </html>
