@@ -23,6 +23,11 @@
         <div class="container">
             <h2>요약</h2>
             
+            <!-- Total Experience -->
+            <div class="total-experience">
+                <p id="experienceText"></p>
+            </div>
+
             <!-- Career Summary -->
             <div class="summary-subsection">
                 <h3>경력</h3>
@@ -31,9 +36,6 @@
                     <p>2. 법무법인(유한)태평양 / 인사운영팀 / 인턴 / 2023.01 ~ 2023.06</p>
                     <p>3. 몽클레르코리아 / HR팀 / 인턴 / 2022.06 ~ 2022.08</p>
                     <p>4. ㈜ 트릿지 / HR팀 / 채용 담당 인턴 / 2021.08 ~ 2022.02</p>
-                </div>
-                <div class="total-experience">
-                    <p id="experienceText"></p>
                 </div>
             </div>
 
@@ -279,29 +281,18 @@
     <script src="script.js"></script>
     <script>
         function calculateExperience() {
-            // 경력 데이터
-            const careers = [
-                { start: new Date(2024, 1, 1), end: new Date(), type: '정규직' }, // 우미건설
-                { start: new Date(2023, 0, 1), end: new Date(2023, 5, 30), type: '인턴' }, // 태평양
-                { start: new Date(2022, 5, 1), end: new Date(2022, 7, 31), type: '인턴' }, // 몽클레르
-                { start: new Date(2021, 7, 1), end: new Date(2022, 1, 28), type: '인턴' } // 트릿지
-            ];
+            // 경력 데이터 (정규직만 계산)
+            const regularCareer = {
+                start: new Date(2024, 1, 1), // 2024.02.01
+                end: new Date() // 현재
+            };
 
-            let totalMonths = 0;
-            let regularMonths = 0;
-
-            careers.forEach(career => {
-                const months = (career.end.getFullYear() - career.start.getFullYear()) * 12 + 
-                              (career.end.getMonth() - career.start.getMonth());
-                totalMonths += months;
-                
-                if (career.type === '정규직') {
-                    regularMonths = months;
-                }
-            });
+            const totalMs = regularCareer.end - regularCareer.start;
+            const totalDays = totalMs / (1000 * 60 * 60 * 24);
+            const totalMonths = totalDays / 30.44; // 평균 월 일수
 
             const years = Math.floor(totalMonths / 12);
-            const months = totalMonths % 12;
+            const months = Math.floor(totalMonths % 12);
 
             const experienceText = `총 경력: ${years}년 ${String(months).padStart(2, '0')}개월(정규직)`;
             document.getElementById('experienceText').textContent = experienceText;
