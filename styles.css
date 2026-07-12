@@ -55,52 +55,6 @@ body {
     opacity: 0.8;
 }
 
-/* Hero Section */
-.hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 100px 20px;
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.hero-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 10px;
-    animation: slideInDown 0.8s ease-out;
-}
-
-.hero-content .subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    opacity: 0.9;
-}
-
-.hero-content .description {
-    font-size: 1.1rem;
-    margin-bottom: 30px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    opacity: 0.95;
-}
-
-.cta-button {
-    display: inline-block;
-    background: white;
-    color: #667eea;
-    padding: 12px 30px;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: bold;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
 /* Sections */
 section {
     padding: 60px 0;
@@ -124,6 +78,33 @@ section h2:after {
     width: 60px;
     height: 3px;
     background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+/* Career Summary Section */
+.career-summary-section {
+    background: white;
+}
+
+.career-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.career-summary p {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 25px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.career-summary p:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
 }
 
 /* Career Section */
@@ -254,76 +235,6 @@ section h2:after {
     font-size: 0.95rem;
 }
 
-/* Skills Section */
-.skills {
-    background: white;
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-}
-
-.skill-card {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 30px;
-    border-radius: 8px;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
-}
-
-.skill-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
-}
-
-.skill-card h4 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
-
-.skill-card p {
-    font-size: 0.95rem;
-    opacity: 0.9;
-}
-
-/* Contact Section */
-.contact {
-    background: #f8f9fa;
-    text-align: center;
-}
-
-.contact-info p {
-    font-size: 1.1rem;
-    margin-bottom: 30px;
-    color: #666;
-}
-
-.contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.contact-link {
-    display: inline-block;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 12px 30px;
-    text-decoration: none;
-    border-radius: 30px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.contact-link:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
-}
-
 /* Footer */
 .footer {
     background: #333;
@@ -352,14 +263,6 @@ section h2:after {
         font-size: 0.9rem;
     }
 
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-content .subtitle {
-        font-size: 1.2rem;
-    }
-
     section h2 {
         font-size: 2rem;
     }
@@ -384,16 +287,8 @@ section h2:after {
         align-self: flex-start;
     }
 
-    .skills-grid {
+    .career-summary {
         grid-template-columns: 1fr;
-    }
-
-    .contact-links {
-        flex-direction: column;
-    }
-
-    .contact-link {
-        width: 100%;
     }
 }
 
@@ -407,11 +302,7 @@ section h2:after {
         font-size: 0.8rem;
     }
 
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-
-    .hero {
-        padding: 60px 20px;
+    .career-summary {
+        grid-template-columns: 1fr;
     }
 }
